@@ -1,22 +1,16 @@
 const mongoose = require('mongoose');
-const ReviewSchema = new mongoose.Schema({
+require('mongoose-type-email');
+const UserSchema = new mongoose.Schema({
     name: { type: String, required: true, minlength: [3, " Name should be At least 3 character "]},
-    stars:{type: Number, required: true,minlength:[1,"Must give a rate"]},
-    review:{type:String, required:true, minlength: [3, "Review should be At least 3 character "]},
-    
+    email: {type: mongoose.SchemaTypes.Email, required: true},
+    dob: { type: Date, default: new Date() },
+    password:{type:String, required:true, minlength: [3, "Review should be At least 3 character "]},
+    conf_password:{type:String, required:true, minlength: [3, "Review should be At least 3 character "]},
+    stack: {type:Number, default:10.000}
 
 },{timestamps: true})
 
-const MovieSchema = new mongoose.Schema({
-    title: { type: String, required: true, minlength: [3, "Title should be At least 3 character "]},
-    name: { type: String, required: true, minlength: [3, " Name should be At least 3 character "]},
-    stars:{type: Number, required: true,minlength:[1,"Must give a rate"]},
-    review:{type:String, required:true, minlength: [3, "Review should be At least 3 character "]},
-    
-    reviews:[ReviewSchema]
-}, {timestamps: true});
 const model = {
-    Movie : mongoose.model('Movie', MovieSchema),
-    Review : mongoose.model('Rate', ReviewSchema)
+    User : mongoose.model('User', UserSchema)
 }
 module.exports = model;

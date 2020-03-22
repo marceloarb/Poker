@@ -6,7 +6,6 @@
 	
 	max-height: fit-content;
 	padding: 10%;
-	background-image: url(https://s3.amazonaws.com/si-fl-wp/wp-content/uploads/20160714085124/gaming_poker_cards-1024x614.jpg);
 }
 h1{
     text-shadow: 2px 1px 2px #000;
@@ -16,7 +15,7 @@ h1{
 body {
 	padding: 0;
 	margin: 0;
-	background: #C9C9C9;
+	background: url(https://s3.amazonaws.com/si-fl-wp/wp-content/uploads/20160714085124/gaming_poker_cards-1024x614.jpg);
 	color: #fff;
 	font-family: 'Ubuntu', sans-serif;
 }
