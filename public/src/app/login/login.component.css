@@ -3,8 +3,10 @@
 }
 .container-fluid{
 	background-color: rgba(0, 0, 0, 0.788);
-	min-height: 1200px;
-    max-height: fit-content;
+	
+	max-height: fit-content;
+	padding: 10%;
+	background-image: url(https://s3.amazonaws.com/si-fl-wp/wp-content/uploads/20160714085124/gaming_poker_cards-1024x614.jpg);
 }
 h1{
     text-shadow: 2px 1px 2px #000;
@@ -23,7 +25,7 @@ a{
 }
 #wrapper {
 	width: 430px;
-	background: url(https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/RGOP31CS3I.jpg);
+	background: url(https://i.redd.it/2i34yv5jvc921.jpg);
 	margin: 25px auto;
 	padding: 64px;
 	background-size: cover;
