@@ -6,6 +6,7 @@ app.use(express.json());
 app.use(express.static( __dirname + '/public/dist/public' ));
 const flash = require('express-flash');
 const session = require('express-session');
+app.set('trust proxy', 1)
 app.use(session({
     secret: 'keyboardkitteh',
     resave: false,

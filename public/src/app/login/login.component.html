@@ -17,14 +17,14 @@
                     <a class="" href="/register">Sign Up</a>
                 </div>
                 <div id="signin">
-                    <form action="/login" method="POST">
+                    <form (click)="session()" >
                         <div class="form-group">
                             <label for="username">Email</label>
-                            <input type="text" name="email" autofocus>
+                            <input type="text" name="email" [(ngModel)]="user.email" autofocus>
                         </div>
                         <div class="form-group">
                             <label for="pass">Password</label>
-                            <input type="password" name="password">
+                            <input type="password" [(ngModel)]="user.password" name="password">
                             <span id="showpwd" class="fa fa-eye-slash"></span>
                         </div>
                         <div class="form-group">

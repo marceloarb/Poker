@@ -6,11 +6,8 @@ module.exports = function(app){
     app.post('/users',(req,res)=>{
         user.create(req,res);
     })
-    app.post('/review/:id',(req,res)=>{
-        user.create_review(req,res);
-    })
-    app.get('/users/:id',(req,res)=>{
-        user.show(req,res);
+    app.post('/user',(req,res)=>{
+        user.session(req,res);
     })
     app.get('/users/:id/edit',(req,res)=>{
         user.show(req,res);

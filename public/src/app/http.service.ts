@@ -11,4 +11,7 @@ export class HttpService {
   postUser(data){
     return this._http.post('users',data);
   }
+  session(data){
+    return this._http.post('user',data);
+  }
 }

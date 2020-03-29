@@ -3,12 +3,19 @@ require('mongoose-type-email');
 const UserSchema = new mongoose.Schema({
     name: { type: String, required: true, minlength: [3, " Name should be At least 3 character "]},
     email: {type: mongoose.SchemaTypes.Email, required: true},
-    dob: { type: Date, default: new Date() },
-    password:{type:String, required:true, minlength: [3, "Review should be At least 3 character "]},
-    conf_password:{type:String, required:true, minlength: [3, "Review should be At least 3 character "]},
-    stack: {type:Number, default:10.000}
+    password:{type:String, required:true, minlength: [8, "Password should be At least 8 character "]},
+    conf_password:{type:String, required:true, minlength: [8, "Password must be equal"]},
+    dob: { type: Date, required:true, default: new Date() },
+    stack: {type:Number, default:10.000},
+    
 
 },{timestamps: true})
+
+const TableSchema = new mongoose.Schema({
+    deck:{},
+    players:[],
+    users:[UserSchema],
+})
 
 const model = {
     User : mongoose.model('User', UserSchema)

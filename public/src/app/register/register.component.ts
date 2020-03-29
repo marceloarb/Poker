@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../http.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Validator } from '@angular/forms'
 
 @Component({
   selector: 'app-register',
@@ -24,7 +25,6 @@ export class RegisterComponent implements OnInit {
       }
       else{
         this.user = data;
-        this._router.navigate(['/'])
       }
     })
   }
