@@ -45,6 +45,8 @@
                     <label for="pass">Password</label>
                     <input type="password" 
                     name="password" 
+                    required
+                    minlength="8"
                     [(ngModel)]="user.password"
                     class="form-control">
                     <span id="showpwd" class="fa fa-eye-slash"></span>

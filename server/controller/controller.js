@@ -11,13 +11,7 @@ module.exports = {
     create:function(req,res){
             
         
-        if(req.body.password != req.body.conf_password){
-            bad=[];
-            bad.push("Password must match")
-            res.json(bad)
-                    
-        }
-        else{
+        if(req.body.password == req.body.conf_password && req.body.password != 0){
             bcrypt.hash(req.body.password, 10)
                 .then(pw=>{
                     let user = new User()
@@ -27,26 +21,27 @@ module.exports = {
                     user.password = pw;
                     user.conf_password = pw;
                     user.save()
-                    .then(user=>{
-                        console.log(user)
-                        res.json(user)
-                    })
-                    .catch(err => {
-                        bad=[];
-                        // adjust the code below as needed to create a flash message with the tag and content you would like
-                        for (var key in err.errors) {
-                            bad.push(err.errors[key].message);
-                        }
-                        res.json(bad);
-                    })
+                        .then(user=>{
+                            res.json(user)
+                        })
+                        .catch(err => {
+                            bad=[];
+                            // adjust the code below as needed to create a flash message with the tag and content you would like
+                            for (var key in err.errors) {
+                                bad.push(err.errors[key].message);
+                            }
+                            res.json(bad);
+                        })
                 })
+                    
         }
-        
 
     },
     session:function(req,res){
-        console.log(req.body.password)
-        bcrypt.compare('req.body.password','User.findOne({email:req.body.email})')
+       let user =  User.findOne({email:req.body.email})
+       console.log(user)
+       console.log(req.body.password)
+        bcrypt.compare('req.body.password',user.password)
             .then(user=>{
                 console.log(user)
                 res.json(user);
